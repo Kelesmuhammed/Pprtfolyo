@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Muhammed Keleş — Ağ Teknolojileri, IoT (ESP32/LoRaWAN) &amp; Yazılım Portfolyosu</title>
+  <meta content="Muhammed Keleş kişisel portfolyosu. ZBEÜ İnternet ve Ağ Teknolojileri mezunu, TÜBİTAK 2209-A proje yürütücüsü (ESP32/LoRaWAN), C# & MSSQL ve Unity 3D geliştirme." name="description">
+  <meta content="Muhammed Keleş, Ağ Teknolojileri, TÜBİTAK 2209-A, ESP32, LoRaWAN, ESP8266, Arduino, C#, MSSQL, Unity 3D, Düzce, Akçakoca" name="keywords">
+
+  <!-- Favicon -->
+  <link href="assets/img/site-logo.png" rel="icon">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Yerel Kütüphaneler (Mevcut dosya yolları korundu) -->
+  <link href="assets/Muhammed/aos/aos.css" rel="stylesheet">
+  <link href="assets/Muhammed/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/Muhammed/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/Muhammed/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/Muhammed/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/Muhammed/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Ana Stil Dosyası -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Üst İlerleme Çubuğu (Scroll Progress) -->
+  <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+  <!-- Mobil Menü Butonu -->
+  <button type="button" class="mobile-nav-toggle d-xl-none" aria-label="Menüyü Aç/Kapat">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <!-- Mobil Arka Plan Karartma -->
+  <div class="sidebar-backdrop d-xl-none" id="sidebarBackdrop"></div>
+
+  <!-- =======================================================
+       SOL SABİT MODERN PANEL (SIDEBAR — Kaydırma çubuksuz, kompakt)
+  ======================================================== -->
+  <header id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      <!-- Üst Profil Alanı -->
+      <div class="profile-card">
+        <div class="profile-top">
+          <div class="profile-avatar-wrap">
+            <img src="assets/img/profile-img.jpg" alt="Muhammed Keleş" class="profile-img">
+            <span class="avatar-status-dot" title="Aktif — Yeni şeyler inşa ediyor"></span>
+          </div>
+          <div class="profile-meta">
+            <h1 class="profile-name">
+              <a href="#hero" class="scrollto">Muhammed Keleş</a>
+            </h1>
+            <div class="location-badge">
+              <i class="bi bi-geo-alt-fill"></i>
+              <span>Düzce, Akçakoca</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-role-pill">
+          <span>Ağ &amp; Sistem &bull; IoT (LoRaWAN) &bull; C#</span>
+        </div>
+      </div>
+
+      <!-- Navigasyon -->
+      <nav id="navbar" class="nav-menu" aria-label="Ana Menü">
+        <ul>
+          <li>
+            <a href="#hero" class="nav-link scrollto active">
+              <span class="nav-icon"><i class="bi bi-grid-1x2"></i></span>
+              <span class="nav-text">Giriş</span>
+              <span class="nav-index">01</span>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="nav-link scrollto">
+              <span class="nav-icon"><i class="bi bi-person-lines-fill"></i></span>
+              <span class="nav-text">Hikayem &amp; Özgeçmiş</span>
+              <span class="nav-index">02</span>
+            </a>
+          </li>
+          <li>
+            <a href="#workbench" class="nav-link scrollto">
+              <span class="nav-icon"><i class="bi bi-cpu"></i></span>
+              <span class="nav-text">Teknik Tezgah</span>
+              <span class="nav-index">03</span>
+            </a>
+          </li>
+          <li>
+            <a href="#projects" class="nav-link scrollto">
+              <span class="nav-icon"><i class="bi bi-layers"></i></span>
+              <span class="nav-text">Projeler &amp; Arşiv</span>
+              <span class="nav-index">04</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-link scrollto">
+              <span class="nav-icon"><i class="bi bi-envelope-paper"></i></span>
+              <span class="nav-text">İletişim</span>
+              <span class="nav-index">05</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Alt Durum & Sosyal Bağlantılar -->
+      <div class="sidebar-footer">
+        <div class="sidebar-telemetry">
+          <div class="telemetry-row">
+            <span class="t-label">YEREL SAAT</span>
+            <span class="t-val" id="localClock">--:--</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="t-label">YABANCI DİL</span>
+            <span class="t-val text-copper">İngilizce (B1)</span>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/Kelesmuhammed" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/muhammed-keleş-b20b952bb/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/muhammedkeles.81/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+            <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="mailto:info.muhammedkeles@gmail.com" title="info.muhammedkeles@gmail.com" aria-label="E-Posta">
+            <i class="bx bxl-gmail"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =======================================================
+       ANA İÇERİK ALANI
+  ======================================================== -->
+  <main id="main-content">
+
+    <!-- 01. HERO (GİRİŞ) BÖLÜMÜ -->
+    <section id="hero" class="hero-section d-flex align-items-center">
+      <div class="hero-bg-overlay"></div>
+      <div class="container position-relative z-2">
+        <div class="row align-items-center g-5">
+
+          <!-- Sol: Ana Tanıtım -->
+          <div class="col-lg-7">
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              <span>Durum: Bilgileri tazeleme &amp; yeni şeyler inşa etme sürecinde</span>
+            </div>
+
+            <h2 class="hero-heading">
+              Merhaba, ben <span class="text-gradient-copper">Muhammed.</span>
+            </h2>
+
+            <div class="hero-typed-box">
+              <span class="typed-prefix">~/muhammed $</span>
+              <span class="typed" data-typed-items="Ağ Teknolojileri Mezunuyum.|TÜBİTAK 2209-A Proje Yürütücüsüyüm.|ESP32, LoRaWAN ve IoT kurcalıyorum.|C#, MSSQL ve Unity 3D ile uğraşıyorum.|Eski bilgileri tazeleyip yeni şeyler öğreniyorum."></span>
+            </div>
+
+            <p class="hero-description">
+              Süslü kurumsal kelimeler kullanmayı pek sevmem. Zonguldak Bülent Ecevit Üniversitesi İnternet ve Ağ Teknolojileri mezunuyum. TÜBİTAK 2209-A kapsamında Arduino/ESP32 ve LoRaWAN tabanlı araştırma projesinde ekip liderliği yaptım; elektronik devrelerle uğraşmayı seviyorum ve şu sıralar bilgilerimi tazeleyip C# ile oyun geliştirme dünyasını keşfediyorum.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn-modern btn-modern-primary scrollto">
+                <span>Projeleri &amp; Çalışmaları Gör</span>
+                <i class="bi bi-arrow-down-right"></i>
+              </a>
+              <a href="#contact" class="btn-modern btn-modern-secondary scrollto">
+                <i class="bi bi-send"></i>
+                <span>İletişime Geç</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Sağ: Modern İnteraktif Sistem & CV Özeti Paneli -->
+          <div class="col-lg-5">
+            <div class="telemetry-panel spotlight-card">
+              <div class="panel-header">
+                <div class="panel-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <span class="panel-title">SYS_MONITOR // PROFILE_OVERVIEW</span>
+                <span class="panel-badge">MEZUN &bull; AKTİF</span>
+              </div>
+
+              <div class="panel-body">
+                <div class="sys-metric-grid">
+                  <div class="sys-metric">
+                    <span class="m-title">EĞİTİM (2023 – 2025)</span>
+                    <strong class="m-value">ZBEÜ — İnternet ve Ağ Teknolojileri</strong>
+                    <span class="m-sub">Ağ Yönetimi, Sistem Kurulumu &amp; Donanım</span>
+                  </div>
+
+                  <div class="sys-metric">
+                    <span class="m-title">ARAŞTIRMA &amp; LİDERLİK</span>
+                    <strong class="m-value">TÜBİTAK 2209-A Proje Yürütücüsü</strong>
+                    <span class="m-sub">Arduino, ESP32 &amp; LoRaWAN Saha Testleri</span>
+                  </div>
+
+                  <div class="sys-metric">
+                    <span class="m-title">SAHA DENEYİMİ &amp; YAZILIM</span>
+                    <strong class="m-value">Bilgi İşlem &amp; C# / MSSQL / Unity 3D</strong>
+                    <span class="m-sub">Akçakoca Belediyesi Stajı &bull; Masaüstü &amp; 3D</span>
+                  </div>
+                </div>
+
+                <div class="sys-code-snippet">
+                  <code><span class="c-key">const</span> <span class="c-var">hedef</span> = <span class="c-str">"Bilişim altyapılarına ve yazılıma değer katmak."</span>;</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. HAKKIMDA, EĞİTİM, DENEYİM & "DÜRÜST DURUM RAPORU" (#about) -->
+    <section id="about" class="section-area">
+      <div class="container">
+
+        <div class="section-head">
+          <div class="section-eyebrow">
+            <span class="eyebrow-num">02</span>
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">HİKAYEM, ÖZGEÇMİŞ &amp; DURUM RAPORU</span>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+            <h2 class="section-heading">Kimim, Neler Yaptım ve Neden Buradayım?</h2>
+            <span class="mono-tag">// hem resmi geçmişim hem de samimi durum kaydım</span>
+          </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+
+          <!-- Sol Sütun: Kimim & Neredeyim -->
+          <div class="col-lg-6">
+            <div class="bento-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="bento-card-header">
+                  <span class="bento-icon"><i class="bi bi-hdd-network"></i></span>
+                  <div>
+                    <span class="bento-kicker">ARKA PLAN &amp; YAKLAŞIM</span>
+                    <h3 class="bento-title">Kimim &amp; Neredeyim?</h3>
+                  </div>
+                </div>
+
+                <div class="info-feature-list mt-4">
+                  <div class="info-feature-item">
+                    <div class="feature-marker"><i class="bi bi-mortarboard-fill"></i></div>
+                    <div>
+                      <h4>Eğitim &amp; Mezuniyet</h4>
+                      <p>
+                        <strong>Zonguldak Bülent Ecevit Üniversitesi – İnternet ve Ağ Teknolojileri (2023 – 2025)</strong> mezunuyum. Ağ yönetimi, sistem kurulumu, donanım bakımı ve yazılım geliştirme alanlarında altyapı edindim.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="info-feature-item">
+                    <div class="feature-marker"><i class="bi bi-sliders"></i></div>
+                    <div>
+                      <h4>Yaklaşım &amp; Saha Pratiği</h4>
+                      <p>
+                        Sadece ekranda kalan kodlardan ziyade, fiziksel dünyaya dokunan (Arduino/ESP32/ESP8266, LoRaWAN, sensörler, kablolama, ağ kurulumu) ve mekaniği olan işleri seviyorum. TÜBİTAK destekli projede ekip liderliği, donanım montajı ve saha testlerini bizzat yürüttüm.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-quick-facts mt-4">
+                <div class="fact-pill">
+                  <span class="f-label">Konum</span>
+                  <span class="f-val">Düzce, Akçakoca</span>
+                </div>
+                <div class="fact-pill">
+                  <span class="f-label">Yabancı Dil</span>
+                  <span class="f-val">İngilizce (B1)</span>
+                </div>
+                <div class="fact-pill">
+                  <span class="f-label">Odak</span>
+                  <span class="f-val">Ağ, IoT &amp; Yazılım</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sağ Sütun: Gerçekçi Bir Not / Neden Buradayım? (DevLog) -->
+          <div class="col-lg-6">
+            <div class="devlog-terminal spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="terminal-bar">
+                  <div class="terminal-controls">
+                    <span class="ctrl-copper"></span>
+                    <span class="ctrl-amber"></span>
+                    <span class="ctrl-sage"></span>
+                  </div>
+                  <div class="terminal-tab">
+                    <i class="bi bi-terminal"></i> devlog_durum_raporu.md
+                  </div>
+                  <span class="terminal-status">DÜRÜST NOT</span>
+                </div>
+
+                <div class="terminal-content">
+                  <div class="terminal-heading-row">
+                    <span class="terminal-badge">Gerçekçi Bir Not / Neden Buradayım?</span>
+                  </div>
+
+                  <blockquote class="honest-quote">
+                    <p>
+                      <strong>"Açık konuşmak gerekirse;</strong> mezun olduktan sonra doğrudan sektörde bir iş bulamadığım ve farklı işlerde çalıştığım için okulda öğrendiğim bazı teorik bilgiler haliyle eskidi, biraz paslandı. Ama bunu bir bahane olarak bırakmak istemedim. Şu an boş vakitlerimde hem eski ağ/yazılım temellerimi telafi ediyor hem de hiç bilmediğim alanlara (Unity ile oyun geliştirme gibi) sıfırdan dalıp deneme-yanılma yoluyla kendimi yeniden inşa ediyorum. Bu site de o sürecin bir kaydı."
+                    </p>
+                  </blockquote>
+                </div>
+              </div>
+
+              <div class="terminal-footer">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                  <code>&gt; status: rebuilding_skills --mode=hands-on</code>
+                  <span class="terminal-sign">Muhammed Keleş</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CV Zaman Çizelgesi: İş Deneyimi, Eğitim Geçmişi & Referans -->
+        <div class="row g-4 mt-1">
+
+          <!-- İş Deneyimi -->
+          <div class="col-lg-5">
+            <div class="bento-card spotlight-card h-100">
+              <div class="bento-card-header mb-3">
+                <span class="bento-icon"><i class="bi bi-briefcase-fill"></i></span>
+                <div>
+                  <span class="bento-kicker">SAHA &amp; KURUM DENEYİMİ</span>
+                  <h3 class="bento-title">İş / Staj Deneyimi</h3>
+                </div>
+              </div>
+
+              <div class="cv-timeline">
+                <div class="cv-timeline-item">
+                  <div class="cv-time-badge">16/06/2025 &ndash; 28/07/2025</div>
+                  <h4 class="cv-item-title">Bilgi İşlem Stajyeri</h4>
+                  <div class="cv-item-org">
+                    <i class="bi bi-building"></i> Düzce Akçakoca Belediyesi
+                  </div>
+                  <p class="cv-item-desc">
+                    Staj süresince bilgi işlem ve teknik servis departmanında sistem bakım, donanım onarım, envanter takibi ve kurumsal ağ/altyapı süreçlerine doğrudan destek verdim.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eğitim Geçmişi -->
+          <div class="col-lg-4">
+            <div class="bento-card spotlight-card h-100">
+              <div class="bento-card-header mb-3">
+                <span class="bento-icon"><i class="bi bi-journal-Check bi-journal-bookmark-fill"></i></span>
+                <div>
+                  <span class="bento-kicker">AKADEMİK GEÇMİŞ</span>
+                  <h3 class="bento-title">Eğitim</h3>
+                </div>
+              </div>
+
+              <div class="cv-timeline">
+                <div class="cv-timeline-item">
+                  <div class="cv-time-badge">2023 &ndash; 2025</div>
+                  <h4 class="cv-item-title">İnternet ve Ağ Teknolojileri</h4>
+                  <div class="cv-item-org">Zonguldak Bülent Ecevit Üniversitesi</div>
+                  <p class="cv-item-desc">Önlisans Derecesi (Mezun) &bull; TÜBİTAK 2209-A Proje Yürütücülüğü</p>
+                </div>
+
+                <div class="cv-timeline-item mt-3 pt-3 border-top-subtle">
+                  <div class="cv-time-badge">2018 &ndash; 2022</div>
+                  <h4 class="cv-item-title">Lise Eğitimi</h4>
+                  <div class="cv-item-org">Akçakoca Barbaros Anadolu Lisesi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Referans & Dil -->
+          <div class="col-lg-3">
+            <div class="bento-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="bento-card-header mb-3">
+                  <span class="bento-icon"><i class="bi bi-person-check-fill"></i></span>
+                  <div>
+                    <span class="bento-kicker">AKADEMİK REFERANS</span>
+                    <h3 class="bento-title">Referans</h3>
+                  </div>
+                </div>
+
+                <div class="ref-box">
+                  <h4 class="ref-name">Emre Özgül</h4>
+                  <span class="ref-role">Öğretim Üyesi</span>
+                  <p class="ref-inst">Zonguldak Bülent Ecevit Üniversitesi</p>
+                </div>
+              </div>
+
+              <div class="lang-box mt-3">
+                <span class="lang-label">YABANCI DİL</span>
+                <div class="d-flex justify-content-between align-items-center mt-1">
+                  <strong>İngilizce</strong>
+                  <span class="wb-pill pill-sage">B1 Seviye</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03. TEKNİK TEZGAH / YETKİNLİKLER (#workbench) -->
+    <section id="workbench" class="section-area section-darker">
+      <div class="container">
+
+        <div class="section-head">
+          <div class="section-eyebrow">
+            <span class="eyebrow-num">03</span>
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">TEKNİK TEZGAH &amp; YETKİNLİKLER</span>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+            <h2 class="section-heading">Elimdekiler, Kurcaladıklarım ve Öğrendiklerim</h2>
+            <span class="mono-tag">/* CV yetkinlikleri + güncel odak alanlarım */</span>
+          </div>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- Kart 1: Elimdekiler & Altyapım -->
+          <div class="col-lg-4">
+            <div class="bento-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="workbench-top">
+                  <div class="wb-icon-box wb-copper">
+                    <i class="bi bi-tools"></i>
+                  </div>
+                  <span class="wb-pill pill-copper">01 // TEMELLER &amp; SİSTEM</span>
+                </div>
+
+                <h3 class="wb-card-title">🛠️ Elimdekiler &amp; Altyapım</h3>
+                <p class="wb-card-sub">
+                  Üniversite eğitimimden, belediye stajımdan ve masaüstü/web projelerimden gelen altyapım:
+                </p>
+
+                <ul class="wb-item-list">
+                  <li>
+                    <div class="wb-bullet"></div>
+                    <div>
+                      <strong>Ağ &amp; Sistem Yönetimi</strong>
+                      <span>ZBEÜ Altyapısı, Yerel Ağlar, Sistem Bakım/Onarım, Envanter &amp; Arıza Tespiti</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="wb-bullet"></div>
+                    <div>
+                      <strong>Yazılım Dilleri &amp; Veritabanı</strong>
+                      <span>C#, SQL (MSSQL), HTML5, CSS3, Bootstrap, JavaScript</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="wb-bullet"></div>
+                    <div>
+                      <strong>Dijital Tasarım &amp; Arayüz</strong>
+                      <span>Adobe Photoshop ve Figma ile arayüz, afiş ve dijital çizim</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="wb-bullet"></div>
+                    <div>
+                      <strong>Analiz &amp; Süreç Yönetimi</strong>
+                      <span>Proje Analizi, Veri Analizi, Ekip Liderliği ve Takım Çalışması</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="wb-tags-footer">
+                <span>Ağ Yönetimi</span>
+                <span>C#</span>
+                <span>MSSQL</span>
+                <span>HTML/CSS/JS</span>
+                <span>Figma &amp; PS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kart 2: Kurcaladıklarım & Donanım -->
+          <div class="col-lg-4">
+            <div class="bento-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="workbench-top">
+                  <div class="wb-icon-box wb-amber">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                  </div>
+                  <span class="wb-pill pill-amber">02 // IoT &amp; ARAŞTIRMA</span>
+                </div>
+
+                <h3 class="wb-card-title">⚡ Kurcaladıklarım &amp; Donanım</h3>
+                <p class="wb-card-sub">
+                  TÜBİTAK 2209-A araştırması ve kişisel atölyemde geliştirdiğim gömülü sistem/IoT işleri:
+                </p>
+
+                <ul class="wb-item-list">
+                  <li>
+                    <div class="wb-bullet bullet-amber"></div>
+                    <div>
+                      <strong>ESP32, ESP8266 (NodeMCU) &amp; Arduino</strong>
+                      <span>Mikrodenetleyici programlama, donanımsal montaj ve saha testleri</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="wb-bullet bullet-amber"></div>
+                    <div>
+                      <strong>LoRaWAN &amp; Kablosuz Haberleşme</strong>
+                      <span>Uzun menzilli, düşük güç tüketimli yenilenebilir IoT haberleşme altyapısı</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="wb-bullet bullet-amber"></div>
+                    <div>
+                      <strong>Sensör &amp; Otomasyon Devreleri</strong>
+                      <span>DHT Sensörleri, Röle Modülleri, Multimetre &amp; Fiziksel Devre Kurulumu</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="wb-bullet bullet-amber"></div>
+                    <div>
+                      <strong>Geliştirici Araçları</strong>
+                      <span>Git, GitHub, AI Destekli Kodlama Akışları</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="wb-tags-footer">
+                <span>ESP32</span>
+                <span>LoRaWAN</span>
+                <span>ESP8266</span>
+                <span>Arduino</span>
+                <span>TÜBİTAK 2209-A</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kart 3: Şu Sıralar Öğrendiklerim -->
+          <div class="col-lg-4">
+            <div class="bento-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="workbench-top">
+                  <div class="wb-icon-box wb-sage">
+                    <i class="bi bi-controller"></i>
+                  </div>
+                  <span class="wb-pill pill-sage">03 // ACEMİ &amp; MERAKLI</span>
+                </div>
+
+                <h3 class="wb-card-title">🎮 Şu Sıralar Öğrendiklerim</h3>
+                <p class="wb-card-sub">
+                  Masaüstü C# aşinalığımı 3 boyutlu dünyaya taşıyıp deneme-yanılma yaptığım yeni alan:
+                </p>
+
+                <div class="unity-highlight-box">
+                  <div class="unity-head">
+                    <i class="bx bxl-unity"></i>
+                    <strong>Unity 3D</strong>
+                  </div>
+                  <p>
+                    "Henüz yolun çok başındayım. Ne yaptığımı tam bilmeden fizik motorunu, low-poly modelleri ve co-op (çok oyunculu) mantığını deneme-yanılma ile çözmeye çalışıyorum."
+                  </p>
+                </div>
+
+                <ul class="wb-item-list mt-3">
+                  <li>
+                    <div class="wb-bullet bullet-sage"></div>
+                    <div>
+                      <strong>Oyun Fiziği &amp; C# Script Denemeleri</strong>
+                      <span>Rigidbody etkileşimleri, nesne taşıma ve sahne mekanikleri üzerine pratikler</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="wb-tags-footer">
+                <span>Unity 3D</span>
+                <span>C# Scripting</span>
+                <span>Rigidbody</span>
+                <span>Co-op Mekanik</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04. ÇALIŞMALAR, PROJELER VE ARŞİV (#projects) -->
+    <section id="projects" class="section-area">
+      <div class="container">
+
+        <div class="section-head">
+          <div class="section-eyebrow">
+            <span class="eyebrow-num">04</span>
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">PROJELER, DENEMELER &amp; ARŞİV</span>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+            <div>
+              <h2 class="section-heading">Çalışmalar, Denemeler ve Arşiv</h2>
+              <p class="section-subtext mb-0">
+                TÜBİTAK araştırması, masaüstü otomasyonu, aktif Unity/IoT denemelerim ve öğrencilik dönemi tasarım arşivim.
+              </p>
+            </div>
+
+            <!-- Isotope Filtre Menüsü -->
+            <ul id="portfolio-filters" class="modern-filters">
+              <li data-filter="*" class="filter-active">Tümü</li>
+              <li data-filter=".filter-hardware">Donanım / IoT &amp; TÜBİTAK</li>
+              <li data-filter=".filter-learning">Yazılım &amp; Denemeler</li>
+              <li data-filter=".filter-archive">Tasarım &amp; Eski Arşiv</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Isotope Grid -->
+        <div class="row g-4 portfolio-container">
+
+          <!-- 1. TÜBİTAK 2209-A Araştırma Projesi (CV'den eklendi) -->
+          <div class="col-lg-6 portfolio-item filter-hardware">
+            <article class="project-showcase-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="project-visual-blueprint blueprint-tubitak">
+                  <div class="bp-header">
+                    <span class="bp-file"><i class="bi bi-broadcast-pin"></i> Project: TUBITAK_2209A_LoRaWAN</span>
+                    <span class="bp-badge badge-copper-solid">Ekip Lideri &amp; Geliştirici</span>
+                  </div>
+                  <div class="bp-stage">
+                    <div class="bp-entity">
+                      <span class="bp-box bp-box-copper"><i class="bi bi-cpu-fill"></i></span>
+                      <small>Arduino &amp; ESP32</small>
+                    </div>
+                    <div class="bp-link">
+                      <span class="bp-line"></span>
+                      <code>LoRaWAN Protokolü</code>
+                      <span class="bp-line"></span>
+                    </div>
+                    <div class="bp-entity">
+                      <span class="bp-box bp-box-amber"><i class="bi bi-sun-fill"></i></span>
+                      <small>Yenilenebilir Saha</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-card-body">
+                  <div class="project-meta-top">
+                    <span class="p-category">ARAŞTIRMA PROJESİ &bull; DONANIM / IoT</span>
+                    <span class="p-tech">ESP32 &bull; Arduino &bull; LoRaWAN</span>
+                  </div>
+                  <h3 class="p-title">TÜBİTAK 2209-A Araştırma Projesi</h3>
+                  <p class="p-desc">
+                    TÜBİTAK 2209-A destekli araştırma projesinin <strong>ekip yönetimini</strong> üstlendim ve baştan sona tüm süreçlerini yürüttüm. Arduino, ESP32 ve LoRaWAN tabanlı yenilenebilir sistemin donanımsal montaj, yazılım geliştirme ve saha testleri görevlerini gerçekleştirdim.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-card-footer">
+                <span class="p-status-indicator">
+                  <span class="dot-live"></span> Durum: Tamamlandı (Ekip Yönetimi &amp; Saha Testi)
+                </span>
+                <span class="p-code-note">TÜBİTAK 2209-A</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- 2. Hastane Otomasyon Sistemi (CV'den eklendi) -->
+          <div class="col-lg-6 portfolio-item filter-learning">
+            <article class="project-showcase-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="project-visual-blueprint blueprint-sql">
+                  <div class="bp-header">
+                    <span class="bp-file"><i class="bi bi-database-check"></i> Solution: HospitalAutomation.sln</span>
+                    <span class="bp-badge badge-amber-solid">Masaüstü Otomasyon</span>
+                  </div>
+                  <div class="bp-stage">
+                    <div class="bp-entity">
+                      <span class="bp-box bp-box-amber"><i class="bi bi-window-desktop"></i></span>
+                      <small>C# .NET Arayüzü</small>
+                    </div>
+                    <div class="bp-link">
+                      <span class="bp-line"></span>
+                      <code>Yetkilendirme &amp; Sorgu</code>
+                      <span class="bp-line"></span>
+                    </div>
+                    <div class="bp-entity">
+                      <span class="bp-box bp-box-copper"><i class="bi bi-hdd-stack-fill"></i></span>
+                      <small>MSSQL Veritabanı</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-card-body">
+                  <div class="project-meta-top">
+                    <span class="p-category">MASAÜSTÜ YAZILIM &bull; VERİTABANI</span>
+                    <span class="p-tech">C# &bull; SQL (MSSQL)</span>
+                  </div>
+                  <h3 class="p-title">Hastane Otomasyon Sistemi</h3>
+                  <p class="p-desc">
+                    Dönem projesi olarak <strong>C#</strong> ve <strong>MSSQL</strong> kullanarak geliştirdiğim masaüstü otomasyonu. Kullanıcı yetkilendirme, hasta kayıt/veri yönetimi ve doktor kontrol ekranları gibi temel hastane işleyiş modüllerini içerir.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-card-footer">
+                <span class="p-status-indicator">
+                  <span class="dot-amber"></span> Durum: Tamamlandı (Dönem Projesi)
+                </span>
+                <span class="p-code-note">C# &amp; MSSQL</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- 3. Unity 3D Fizik & Co-op Denemeleri -->
+          <div class="col-lg-6 portfolio-item filter-learning">
+            <article class="project-showcase-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="project-visual-blueprint blueprint-unity">
+                  <div class="bp-header">
+                    <span class="bp-file"><i class="bx bxl-unity"></i> Scene: CoopPhysicsSandbox.unity</span>
+                    <span class="bp-badge badge-sage-solid">Öğrenme Sürecinde / Acemi</span>
+                  </div>
+                  <div class="bp-stage">
+                    <div class="bp-entity">
+                      <span class="bp-box"><i class="bi bi-person-bounding-box"></i></span>
+                      <small>Player_1 &amp; Player_2</small>
+                    </div>
+                    <div class="bp-link">
+                      <span class="bp-line"></span>
+                      <code>FixedJoint / Rigidbody</code>
+                      <span class="bp-line"></span>
+                    </div>
+                    <div class="bp-entity">
+                      <span class="bp-box bp-box-copper"><i class="bi bi-box-seam-fill"></i></span>
+                      <small>LowPoly_Crate</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-card-body">
+                  <div class="project-meta-top">
+                    <span class="p-category">DENEMELER &amp; ÖĞRENME</span>
+                    <span class="p-tech">Unity 3D &bull; C# &bull; Co-op Fizik</span>
+                  </div>
+                  <h3 class="p-title">Unity 3D Fizik &amp; Co-op Denemeleri</h3>
+                  <p class="p-desc">
+                    Kardeşimle birlikte Unity öğrenmek için giriştiğimiz 3D low-poly denemeleri. Henüz tam bir oyun sayılmaz; nesne fiziği, taşıma mekanikleri ve sahne kurulumunu anlamaya çalıştığımız bir deneme tahtası.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-card-footer">
+                <span class="p-status-indicator">
+                  <span class="dot-live"></span> Durum: Öğrenme Aşamasında (Aktif Deneme)
+                </span>
+                <span class="p-code-note">Physics.Simulate()</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- 4. ESP8266 & Sensör Otomasyon Devreleri -->
+          <div class="col-lg-6 portfolio-item filter-hardware">
+            <article class="project-showcase-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="project-visual-blueprint blueprint-iot">
+                  <div class="bp-header">
+                    <span class="bp-file"><i class="bi bi-cpu"></i> Board: NodeMCU_ESP8266.ino</span>
+                    <span class="bp-badge badge-amber-solid">Fiziksel Proje / Hobi</span>
+                  </div>
+                  <div class="bp-stage">
+                    <div class="bp-entity">
+                      <span class="bp-box"><i class="bi bi-thermometer-half"></i></span>
+                      <small>DHT Sıcaklık/Nem</small>
+                    </div>
+                    <div class="bp-link">
+                      <span class="bp-line"></span>
+                      <code>GPIO D4 -&gt; D1</code>
+                      <span class="bp-line"></span>
+                    </div>
+                    <div class="bp-entity">
+                      <span class="bp-box bp-box-amber"><i class="bi bi-toggle2-on"></i></span>
+                      <small>Röle Tetikleme</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-card-body">
+                  <div class="project-meta-top">
+                    <span class="p-category">DONANIM / IoT</span>
+                    <span class="p-tech">ESP8266 &bull; DHT Sensör &bull; Röle</span>
+                  </div>
+                  <h3 class="p-title">ESP8266 &amp; Sensör Otomasyon Devreleri</h3>
+                  <p class="p-desc">
+                    NodeMCU, sıcaklık/nem sensörleri (DHT) ve röleler kullanarak hazırladığım küçük çaplı ortam kontrol ve takip devreleri.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-card-footer">
+                <span class="p-status-indicator">
+                  <span class="dot-amber"></span> Durum: Hobi / Donanım Projesi
+                </span>
+                <span class="p-code-note">Serial: 115200 baud</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- 5. "Kutupları Koru" — Üniversite Dönemi Ödevi (kutuplar.jpg) -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-archive">
+            <article class="project-showcase-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="project-img-container">
+                  <img src="assets/img/portfolio/kutuplar.jpg" alt="Kutupları Koru - Üniversite Ödevi" class="project-img">
+                  <div class="project-img-badge">Üniversite Ödevi</div>
+                  <div class="project-hover-actions">
+                    <a href="assets/img/portfolio/kutuplar.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox action-pill" title="Kutupları Koru — Okuduğum dönemde hazırladığım görsel tasarım ödevi">
+                      <i class="bi bi-arrows-angle-expand"></i> Tam Ekran İncele
+                    </a>
+                    <a href="https://imgur.com/AbnfINr" target="_blank" rel="noopener noreferrer" class="action-pill action-pill-icon" title="Dış Bağlantı">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-card-body">
+                  <div class="project-meta-top">
+                    <span class="p-category">TASARIM ARŞİVİ</span>
+                    <span class="p-tech">Grafik Tasarım &bull; Afiş</span>
+                  </div>
+                  <h3 class="p-title">"Kutupları Koru" — Dönem Ödevi</h3>
+                  <p class="p-desc">
+                    Üniversitede okuduğum dönemde ders kapsamında hazırladığım "Kutupları Koru" temalı afiş ve görsel farkındalık ödevi.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-card-footer">
+                <span class="p-status-indicator">
+                  <i class="bi bi-journal-bookmark text-copper"></i> Durum: Okul Dönemi Ödevi
+                </span>
+                <span class="p-code-note">kutuplar.jpg</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- 6. Photoshop Çizim Çalışması — Ayı (Ayı.jpg) -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-archive">
+            <article class="project-showcase-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="project-img-container">
+                  <img src="assets/img/portfolio/Ayı.jpg" onerror="this.onerror=null;this.src='assets/img/portfolio/Ay%20.jpg';" alt="Photoshop Çizim Çalışması" class="project-img">
+                  <div class="project-img-badge">Photoshop Çizimi</div>
+                  <div class="project-hover-actions">
+                    <a href="assets/img/portfolio/Ayı.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox action-pill" title="Photoshop üzerinde yaptığım dijital çizim çalışmalarından biri">
+                      <i class="bi bi-arrows-angle-expand"></i> Tam Ekran İncele
+                    </a>
+                    <a href="https://imgur.com/bJLxwIX" target="_blank" rel="noopener noreferrer" class="action-pill action-pill-icon" title="Dış Bağlantı">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-card-body">
+                  <div class="project-meta-top">
+                    <span class="p-category">DİJİTAL ÇİZİM</span>
+                    <span class="p-tech">Adobe Photoshop &bull; İllüstrasyon</span>
+                  </div>
+                  <h3 class="p-title">Photoshop Dijital Çizim Çalışması</h3>
+                  <p class="p-desc">
+                    Adobe Photoshop üzerinde katmanlar, fırçalar ve ışık/gölge tekniklerini kurcalarken yaptığım kişisel dijital çizimlerden biri.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-card-footer">
+                <span class="p-status-indicator">
+                  <i class="bi bi-palette text-copper"></i> Durum: Kişisel Çizim Arşivi
+                </span>
+                <span class="p-code-note">Photoshop (.psd)</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- 7. İlk Web Çalışmaları & Şablon Denemeleri (site.jpg) -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-archive">
+            <article class="project-showcase-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="project-img-container">
+                  <img src="assets/img/portfolio/site.jpg" alt="İlk Web Çalışmaları ve Şablon Denemeleri" class="project-img">
+                  <div class="project-img-badge">Eski Web Arşivi</div>
+                  <div class="project-hover-actions">
+                    <a href="assets/img/portfolio/site.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox action-pill" title="İlk HTML/CSS dönemimden kalan çalışmalar">
+                      <i class="bi bi-arrows-angle-expand"></i> Tam Ekran İncele
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-card-body">
+                  <div class="project-meta-top">
+                    <span class="p-category">ESKİ WEB ARŞİVİ</span>
+                    <span class="p-tech">HTML5 &bull; CSS3</span>
+                  </div>
+                  <h3 class="p-title">İlk Web &amp; Şablon Denemeleri</h3>
+                  <p class="p-desc">
+                    İlk HTML/CSS dönemimden kalan çalışmalar. Nereden başladığımı görmek ve gelişim sürecini kaydetmek adına arşivde tuttuğum eski arayüz denemesi.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-card-footer">
+                <span class="p-status-indicator">
+                  <i class="bi bi-archive text-copper"></i> Durum: Eski Arşiv (Pas Silme Öncesi)
+                </span>
+                <span class="p-code-note">site.jpg</span>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05. İLETİŞİM (#contact) -->
+    <section id="contact" class="section-area section-darker">
+      <div class="container">
+
+        <div class="section-head">
+          <div class="section-eyebrow">
+            <span class="eyebrow-num">05</span>
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-text">İLETİŞİM &amp; BAĞLANTILAR</span>
+          </div>
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+            <h2 class="section-heading">Doğrudan Ulaşın</h2>
+            <span class="mono-tag">// telefon, e-posta veya sosyal ağlar üzerinden</span>
+          </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+
+          <!-- Sol: E-Posta & Telefon Kartları -->
+          <div class="col-lg-7">
+            <div class="bento-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <p class="contact-lead-quote">
+                  "Bir fikriniz varsa, benzer konuları öğreniyorsanız veya sadece selam vermek isterseniz ulaşabilirsiniz."
+                </p>
+                <p class="contact-helper-text">
+                  Aşağıdaki iletişim bilgilerimden bana doğrudan ulaşabilir veya tek tıkla kopyalayabilirsiniz:
+                </p>
+
+                <div class="email-cards-stack mt-4">
+
+                  <!-- E-Posta 1: info.muhammedkeles@gmail.com -->
+                  <div class="email-action-card">
+                    <div class="email-info">
+                      <span class="email-tag">BİRİNCİL / GENEL İLETİŞİM E-POSTASI</span>
+                      <a href="mailto:info.muhammedkeles@gmail.com" class="email-address">
+                        info.muhammedkeles@gmail.com
+                      </a>
+                    </div>
+                    <div class="email-buttons">
+                      <button type="button" class="btn-copy" data-copy="info.muhammedkeles@gmail.com">
+                        <i class="bi bi-clipboard"></i> <span>Kopyala</span>
+                      </button>
+                      <a href="mailto:info.muhammedkeles@gmail.com?subject=Merhaba%20Muhammed" class="btn-send-mail" title="E-Posta Gönder">
+                        <i class="bi bi-send-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- E-Posta 2: Muhammedkls.edu@gmail.com -->
+                  <div class="email-action-card">
+                    <div class="email-info">
+                      <span class="email-tag">ALTERNATİF / EĞİTİM &amp; PROJE E-POSTASI</span>
+                      <a href="mailto:Muhammedkls.edu@gmail.com" class="email-address">
+                        Muhammedkls.edu@gmail.com
+                      </a>
+                    </div>
+                    <div class="email-buttons">
+                      <button type="button" class="btn-copy" data-copy="Muhammedkls.edu@gmail.com">
+                        <i class="bi bi-clipboard"></i> <span>Kopyala</span>
+                      </button>
+                      <a href="mailto:Muhammedkls.edu@gmail.com?subject=Merhaba%20Muhammed" class="btn-send-mail" title="E-Posta Gönder">
+                        <i class="bi bi-send-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Telefon: +90 546 466 44 84 (CV'den eklendi) -->
+                  <div class="email-action-card">
+                    <div class="email-info">
+                      <span class="email-tag">TELEFON NUMARASI</span>
+                      <a href="tel:+905464664484" class="email-address">
+                        +90 546 466 44 84
+                      </a>
+                    </div>
+                    <div class="email-buttons">
+                      <button type="button" class="btn-copy" data-copy="+905464664484">
+                        <i class="bi bi-clipboard"></i> <span>Kopyala</span>
+                      </button>
+                      <a href="tel:+905464664484" class="btn-send-mail" title="Hemen Ara">
+                        <i class="bi bi-telephone-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="contact-location-strip mt-4">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-geo-alt-fill text-copper"></i>
+                  <span><strong>Konum:</strong> Düzce, Akçakoca — Türkiye</span>
+                </div>
+                <span class="mono-tag">GMT+3</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sağ: Sosyal Ağlar & Hızlı Bağlantılar -->
+          <div class="col-lg-5">
+            <div class="bento-card spotlight-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="bento-card-header mb-3">
+                  <span class="bento-icon"><i class="bi bi-share"></i></span>
+                  <div>
+                    <span class="bento-kicker">SOSYAL PROFİLLER</span>
+                    <h3 class="bento-title">Dijital Kanallar</h3>
+                  </div>
+                </div>
+
+                <div class="social-channel-grid">
+                  <a href="https://github.com/Kelesmuhammed" target="_blank" rel="noopener noreferrer" class="channel-card">
+                    <div class="channel-left">
+                      <span class="channel-icon"><i class="bx bxl-github"></i></span>
+                      <div>
+                        <strong>GitHub</strong>
+                        <span>github.com/Kelesmuhammed</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-arrow-up-right channel-arrow"></i>
+                  </a>
+
+                  <a href="https://www.linkedin.com/in/muhammed-keleş-b20b952bb/" target="_blank" rel="noopener noreferrer" class="channel-card">
+                    <div class="channel-left">
+                      <span class="channel-icon"><i class="bx bxl-linkedin"></i></span>
+                      <div>
+                        <strong>LinkedIn</strong>
+                        <span>Muhammed Keleş</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-arrow-up-right channel-arrow"></i>
+                  </a>
+
+                  <a href="https://www.instagram.com/muhammedkeles.81/" target="_blank" rel="noopener noreferrer" class="channel-card">
+                    <div class="channel-left">
+                      <span class="channel-icon"><i class="bx bxl-instagram"></i></span>
+                      <div>
+                        <strong>Instagram</strong>
+                        <span>@muhammedkeles.81</span>
+                      </div>
+                    </div>
+                    <i class="bi bi-arrow-up-right channel-arrow"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="channel-footer-note mt-4">
+                <code>// Kurumsal bilişim altyapıları ve yazılım projeleri için ulaşabilirsiniz.</code>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div class="footer-brand">
+          <span class="footer-dot"></span>
+          <strong>Muhammed Keleş</strong>
+          <span class="footer-sep">&mdash;</span>
+          <span>Kişisel Çalışma Masası &amp; Portfolyo</span>
+        </div>
+        <div class="footer-meta">
+          <code>Düzce, Akçakoca &bull; ZBEÜ İnternet ve Ağ Teknolojileri</code>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Yukarı Çık Butonu -->
+  <a href="#hero" class="back-to-top d-flex align-items-center justify-content-center scrollto" aria-label="Yukarı Çık">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Yerel JS Kütüphaneleri (Mevcut dosya yolları korundu) -->
+  <script src="assets/Muhammed/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/Muhammed/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/Muhammed/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/Muhammed/typed.js/typed.umd.js"></script>
+  <script src="assets/Muhammed/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
